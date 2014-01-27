@@ -32,8 +32,6 @@ class Phenomena.Views.SharedForm extends Phenomena.View
     @model.save(attributes, {
       wait: true,
       success: (model) ->
-        console.log "success update ........."
-        
         #hide & remove dialog
         $('#form_modal').modal('hide')
         current_view.leave()

@@ -24,9 +24,6 @@ class Phenomena.Views.CompaniesShow extends Phenomena.View
     'click .destroy_company' : 'destroy_company'
     
   show_edit_company_modal: (e) ->
-    console.log "edit company ..."
-    console.log @model.get('name')
-    
     e.preventDefault()
     view = new Phenomena.Views.CompaniesEdit({model: @model})
     @.parent.appendChild(view)
