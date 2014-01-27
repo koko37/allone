@@ -4,9 +4,12 @@ window.Phenomena =
   Views: {}
   Routers: {}
   
-  init: ->
+  init_company: ->
     new Phenomena.Routers.Companies()
     Backbone.history.start()
    
-$(document).ready ->
-  Phenomena.init()
+  init_task: ->
+    new Phenomena.Routers.Tasks()
+    Backbone.history.start()
+   
+

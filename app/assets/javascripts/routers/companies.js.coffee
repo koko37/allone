@@ -2,7 +2,6 @@ class Phenomena.Routers.Companies extends Support.SwappingRouter
   routes:
     '': 'companies'
     'company' : 'companies'
-    'tasks' : 'tasks'
     'projects' : 'projects'
     
   initialize: ->
@@ -23,8 +22,4 @@ class Phenomena.Routers.Companies extends Support.SwappingRouter
     $(".navbar-fixed-top li").removeClass("active")
     $(".navbar-fixed-top li.project_page").addClass("active")
     console.log "projects index..."
-    
-  tasks: ->
-    $(".navbar-fixed-top li").removeClass("active")
-    $(".navbar-fixed-top li.task_page").addClass("active")
 
