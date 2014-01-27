@@ -1,7 +1,9 @@
 class Phenomena.Routers.Companies extends Support.SwappingRouter
   routes:
-    '': 'index'
-    '/companies' : 'index'
+    '': 'companies'
+    'company' : 'companies'
+    'tasks' : 'tasks'
+    'projects' : 'projects'
     
   initialize: ->
     @collection = new Phenomena.Collections.Companies()
@@ -9,6 +11,20 @@ class Phenomena.Routers.Companies extends Support.SwappingRouter
 
     @el = $("#container")
     
-  index: ->
+  companies: ->
+    console.log "companies index ..."
+    $(".navbar-fixed-top li").removeClass("active")
+    $(".navbar-fixed-top li.company_page").addClass("active")
+
     view = new Phenomena.Views.CompaniesIndex({collection: @collection})
     @swap(view)
+    
+  projects: ->
+    $(".navbar-fixed-top li").removeClass("active")
+    $(".navbar-fixed-top li.project_page").addClass("active")
+    console.log "projects index..."
+    
+  tasks: ->
+    $(".navbar-fixed-top li").removeClass("active")
+    $(".navbar-fixed-top li.task_page").addClass("active")
+

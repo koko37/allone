@@ -12,8 +12,9 @@
         .container
           %a.brand Ovida
           %ul.nav
-            %li.active= link_to "Company", "#"
-            %li= link_to "Show","#"
+            %li.company_page= link_to "Company", company_home_main_path
+            %li.task_page= link_to "Tasks",task_home_main_path
+            %li.project_page= link_to "Projects","#projects"
             %li= link_to "Preference","#"
           %ul.nav.pull-right
             %li= link_to "Edit", "#"

@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Company.all
+    respond_with Company.order("updated_at ASC")
   end
   
   def create
