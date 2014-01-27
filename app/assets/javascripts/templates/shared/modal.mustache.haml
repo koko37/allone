@@ -1,0 +1,10 @@
+.modal.hide{:id => '{{type}}_modal'}
+  .modal-header
+    %button.close{:type=> "button", 'data-dismiss'=>"modal"} x
+    %h4 {{ header }}
+    
+  .modal-body
+
+  .modal-footer
+    = link_to "Close", "#", :class => "btn", :id => "close"
+    = link_to "Submit", "#", :class=> "btn btn-primary", :id=>"submit"

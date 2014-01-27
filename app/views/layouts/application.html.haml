@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title Ovida
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand Ovida
+          %ul.nav
+            %li.active= link_to "Company", "#"
+            %li= link_to "Show","#"
+            %li= link_to "Preference","#"
+          %ul.nav.pull-right
+            %li= link_to "Edit", "#"
+    .container
+      .content
+        = yield

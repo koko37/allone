@@ -1,0 +1,21 @@
+.page-header
+  %h1
+    Company
+    %small= link_to '+', '#', :class=> 'btn btn-success', :style => 'margin-bottom: 10px', :id => 'add_company'
+    
+%table.table.table-condensed
+  %thead
+    %tr
+      %th
+        %i.icon-star
+        Name
+      %th
+        %i.icon-envelope
+        Telephone
+      %th
+        %i.icon-home
+        Address
+      %th
+        %i.icon-cog
+        Notes
+  %tbody#companies
