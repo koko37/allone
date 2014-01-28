@@ -25,7 +25,10 @@ class Phenomena.Views.TaskFormShowView extends Phenomena.View
     @model.save(attributes)
     
   showForm: ->
+    # hide previous form
     $('.task_edit_form_row').addClass('hide')
+    
+    # open current form
     $(@el).find('.hide').removeClass('hide')
     
   closeForm: ->
