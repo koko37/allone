@@ -1,3 +1,7 @@
+.page-header
+  %h3
+    Tasks List
+    =link_to '+','#',:class=>"btn btn-primary", :id=>"add_new_task"
 %table.table.table-condensed
   %thead
     %th{:style=>"width: 30px;"}
@@ -9,5 +13,7 @@
       Material Cost
     %th
       Unit Retail
+    %th{:style=>"width: 60px;"}
+    
   %tbody#tasks_body
   

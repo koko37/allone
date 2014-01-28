@@ -10,6 +10,7 @@ class Phenomena.Views.TaskShowView extends Phenomena.View
   events:
     'click .icon-folder-open': 'show_edit_form'
     'click .icon-folder-close': 'close_edit_form'
+    'click .remove_task_row': 'remove_task'
     
   render: ->
     $(@el).html(@template.render({
@@ -44,3 +45,9 @@ class Phenomena.Views.TaskShowView extends Phenomena.View
     $(@el).find('.open-task-input').removeClass('hide')
     
     @edit_form_instance.closeForm()
+    
+  remove_task: (e) ->
+    e.preventDefault()
+    @edit_form_instance.leave()
+    @leave()
+    @model.destroy()
