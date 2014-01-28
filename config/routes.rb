@@ -1,13 +1,16 @@
 Ovida::Application.routes.draw do
   root :to => "main#company_home"
+
   resources :companies
   resources :tasks
-  
+  resources :projects
+    
   resource :main, :controller => 'main' do
     get 'company_home'
     get 'task_home'
   end
   
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
