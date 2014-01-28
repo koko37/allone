@@ -10,4 +10,15 @@ namespace :data do
     end
   end
 
+  task :add_tasks => :environment do
+    20.times do |i|
+      t = Task.new
+      t.description = "task description is_#{i}"
+      t.labor_cost = 2.5 * i
+      t.material_cost = 1.5
+      t.unit_retail = 132.5
+      t.save
+    end
+  end
+  
 end
