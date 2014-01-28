@@ -3,7 +3,7 @@ class Phenomena.Views.TaskFormShowView extends Phenomena.View
   template: HoganTemplates["tasks/form_show"]
   
   initialize: ->
-    _.bindAll(this, 'render')
+    _.bindAll(this, 'render','on_change_data','showForm','closeForm')
   
   events: ->
     'change input': 'on_change_data'
@@ -19,10 +19,15 @@ class Phenomena.Views.TaskFormShowView extends Phenomena.View
     $(@el).find('.task_edit_form_row').html(f.render().el)
     @
     
-  on_change_data: ->
-    console.log "on change data ..."
+  on_change_data: (e)->
     attributes = Backbone.Syphon.serialize(@)
-    @model.save(attributes)
+    @model.save(attributes,{
+      wait: true, 
+      success: (model) ->
+        console.log "ok"
+      error: (model) ->
+        console.log "failing save"
+    })
     
   showForm: ->
     # hide previous form
