@@ -1,0 +1,43 @@
+.row
+  .span8
+    .form-horizontal
+      .control-group
+        %label.control-label
+          Work Order #
+        .controls
+          .input-xlarge
+            %input{:name => "work_order_number",:type=>"text",:class=>"work_order_number_input",:value=>"{{work_order_number}}" }
+          .help-block
+
+    .form-horizontal
+      .control-group
+        %label.control-label
+          Manager
+        .controls
+          .input-xlarge
+            %input{:name => "manager",:type=>"text",:class=>"manager_input",:value=>"{{manager}}"  }
+          .help-block
+
+    .form-horizontal
+      .control-group
+        %label.control-label
+          Description
+        .controls
+          .input-xlarge
+            %textarea{:name=>"description", :id=>"description_input", :style=>"width: 450px;"}
+              {{description}}
+          .help-block
+          
+  .span4
+    %p
+      Status
+    
+    
+%ul.nav.nav-tabs#project_nav_tab
+  %li.active.summary_tab
+    %a{:href=>"#summary"} Summary
+  %li.costing_tab
+    %a{:href=>"#costing"} Costing
+  %li.expense_tab
+    %a{:href=>"#expense"} Expense
+

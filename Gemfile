@@ -10,6 +10,8 @@ gem 'therubyracer'
 gem 'sqlite3'
 gem 'backbone-on-rails'
 gem 'haml'
+gem 'gon'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

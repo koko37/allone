@@ -1,0 +1,30 @@
+.row
+  %h3
+    Projects
+.row
+  .span12
+    .projects_toolbar
+      .row{:style => "margin-top: 0;"}
+        .well.well-small{:style=>"text-align:center;"}
+          =button_tag "New Project", :class=>"btn btn-primary",:id => "new_project_trigger",:style=>"margin-right:50px;"
+          
+          =button_tag "New View", :class=>"btn btn-primary",:id => "new_view_trigger"
+          =button_tag "Edit View", :class=>"btn btn-primary",:id => "edit_view_trigger"
+          =button_tag "Delete View", :class=>"btn btn-primary",:id => "delete_view_trigger"
+          =button_tag "Set as  Default", :class=>"btn btn-primary",:id => "default_view_trigger"
+
+.row#projects_list{:style => "margin-top: 5px;"}
+  %table.table.table-condensed
+    %thead
+      %th
+        WorkOrder #
+      %th
+        Description
+      %th
+        Created at
+      %th
+        Manager
+      %th
+
+    %tbody#projects_list_table_body
+    

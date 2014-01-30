@@ -1,0 +1,12 @@
+%td
+  {{work_order_number}}
+%td
+  {{description}}
+%td
+  {{created_at}}
+%td
+  {{manager}}
+%td
+  = link_to "open","/main/projects/{{id}}"
+  &nbsp;&nbsp;
+  = link_to "delete","#", :class => "delete_project"

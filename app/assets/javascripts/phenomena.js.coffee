@@ -12,4 +12,7 @@ window.Phenomena =
     new Phenomena.Routers.Tasks()
     Backbone.history.start()
    
+  init_project: ->
+    new Phenomena.Routers.ProjectsRouter()
+    Backbone.history.start()
 

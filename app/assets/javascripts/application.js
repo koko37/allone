@@ -18,7 +18,8 @@
 
 //= backbone-forms
 //= require hogan
-//= require bootstrap-all
+//= require bootstrap-transition
+//= require bootstrap-modal
 //= require backbone-forms.min
 //= require backbone-forms-bootstrap
 
@@ -28,8 +29,4 @@
 //= require phenomena
 //= require phenomena.lib
 
-//= require_tree ./templates
-//= require_tree ./models
-//= require_tree ./collections
-//= require_tree ./views
-//= require_tree ./routers
+

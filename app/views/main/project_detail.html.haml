@@ -1,0 +1,13 @@
+= javascript_include_tag "project"
+
+:plain
+  <script type="text/javascript">
+    $(document).ready(function(){
+      // start ProjectDetailRouter with json property
+      new Phenomena.Routers.ProjectDetailRouter({project: gon.project});
+      Backbone.history.start()
+    });
+  </script>
+  
+#project_detail_view
+  Loading ...

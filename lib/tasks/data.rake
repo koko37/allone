@@ -21,4 +21,13 @@ namespace :data do
     end
   end
   
+  task :add_projects => :environment do
+    5.times do |i|
+      p = Project.new
+      p.work_order_number = 137*i + i
+      p.description = "Project description #{i}"
+      p.save
+    end
+  end
+  
 end
