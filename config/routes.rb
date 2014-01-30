@@ -10,6 +10,9 @@ Ovida::Application.routes.draw do
     get 'company_home'
     get 'task_home'
     get 'project_home'
+    post 'pdf_watermark'
+    get 'sales_input'
+    
   end
   
 

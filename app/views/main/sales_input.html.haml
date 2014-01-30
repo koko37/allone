@@ -1,0 +1,30 @@
+.page-header
+  %h3
+    Sales Information
+  %p
+    Below input form will be printed in PDF document after submit.
+= form_tag :pdf_watermark_main, :class=>"form-horizontal" do
+  .control-group
+    %label.control-label Name
+    .controls
+      .input-xlarge
+        = text_field_tag :name
+      .help-block
+      
+  .control-group
+    %label.control-label Company
+    .controls
+      .input-xlarge
+        = text_field_tag :company_name
+      .help-block
+      
+  .control-group
+    %label.control-label Description
+    .controls
+      .input-xlarge
+        = text_area_tag :description,"",:style => "width:500px;"
+      .help-block
+      
+  .control-group
+    = button_tag "Submit",:class=>"btn btn-primary"
+    = button_tag "Cancel",:class=>"btn"
