@@ -12,6 +12,9 @@ gem 'backbone-on-rails'
 gem 'haml'
 gem 'gon'
 
+gem 'prawn'
+gem 'pdf-reader'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
