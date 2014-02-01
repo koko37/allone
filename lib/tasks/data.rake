@@ -30,4 +30,18 @@ namespace :data do
     end
   end
   
+  task :add_project_tasks => :environment do
+    puts "adding new project task ..."
+    
+    p = Project.find(22)
+    t = Task.first
+    
+    3.times do |i|
+      pt= ProjectTask.new
+      pt.task = t
+      pt.project = p
+      pt.save
+    end
+    
+  end
 end

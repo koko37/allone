@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   respond_to :json
   
   def index
-    respond_with Project.order("updated_at ASC")
+    respond_with Project.order("updated_at ASC"), :include => :project_tasks
   end
   
   def create

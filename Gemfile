@@ -10,6 +10,7 @@ gem 'therubyracer'
 gem 'sqlite3'
 gem 'backbone-on-rails'
 gem 'haml'
+gem 'rabl'
 gem 'gon'
 
 gem 'prawn'

@@ -1,4 +1,27 @@
 .row
   .span12
-    %h1
-      Costing tab
+    .well
+      =link_to "Add Task","#",:class=>"btn btn-primary",:id=> "add_new_project_task"
+.row
+  .span12
+    %h4
+      Project Tasks
+    %table.table.table-condensed
+      %thead
+        %th
+        %th
+          Description
+        %th
+          Labor Cost
+        %th
+          Material Cost
+        %th
+          Unit Retail
+        %th
+          Profit
+        %th
+          Margin
+        %th
+          
+      %tbody#costing_project_tasks_body
+

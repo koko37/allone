@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  belongs_to :project
-  
+  has_many :project_tasks
+
   attr_accessible :description, :labor_cost, :material_cost, :unit_retail
 end

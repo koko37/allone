@@ -1,0 +1,20 @@
+%td
+  = link_to "#",:class=>"open-costing_task-input" do
+    %i.icon-folder-open
+  = link_to "#",:class=>"close-costing_task-input hide" do
+    %i.icon-folder-close
+
+%td.description
+  {{description}}
+%td.labor_cost
+  $ {{labor_cost}}
+%td.material_cost
+  $ {{material_cost}}
+%td.unit_retail
+  $ {{unit_retail}}
+%td.profit
+  $ {{profit}}
+%td.margin
+  {{margin}}%
+%td.remove_task
+  = link_to "-",'#',:class=>"remove_costing_task_row btn btn-warning btn-mini"
