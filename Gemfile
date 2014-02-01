@@ -13,6 +13,9 @@ gem 'haml'
 gem 'rabl'
 gem 'gon'
 
+gem 'passenger'
+gem 'capistrano'
+
 gem 'prawn'
 gem 'pdf-reader'
 

@@ -37,6 +37,10 @@ GEM
       jquery-rails
       rails (>= 3.1)
     builder (3.0.4)
+    capistrano (3.1.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
     chunky_png (1.2.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -53,6 +57,7 @@ GEM
       compass (>= 0.12.2)
     compass_twitter_bootstrap (2.3.1)
       compass
+    daemon_controller (1.1.8)
     dotenv (0.9.0)
     dotenv-rails (0.9.0)
       dotenv (= 0.9.0)
@@ -91,6 +96,13 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     multi_json (1.8.4)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.7.0)
+    passenger (4.0.37)
+      daemon_controller (>= 1.1.0)
+      rack
+      rake (>= 0.8.1)
     pdf-reader (1.3.3)
       Ascii85 (~> 1.0.0)
       afm (~> 0.2.0)
@@ -143,11 +155,18 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.8)
+    sshkit (1.3.0)
+      net-scp (>= 1.1.2)
+      net-ssh
+      term-ansicolor
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
     thor (0.18.1)
     tilt (1.4.1)
+    tins (0.13.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -162,6 +181,7 @@ PLATFORMS
 
 DEPENDENCIES
   backbone-on-rails
+  capistrano
   coffee-rails (~> 3.2.1)
   compass-rails
   compass_twitter_bootstrap
@@ -172,6 +192,7 @@ DEPENDENCIES
   haml_assets
   hogan_assets
   jquery-rails
+  passenger
   pdf-reader
   prawn
   rabl
