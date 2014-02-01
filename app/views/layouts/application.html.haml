@@ -11,7 +11,7 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          %a.brand Ovida
+          %a.brand= ENV['BRAND_NAME'] || "ALLONE"
           %ul.nav
             %li.company_page= link_to "Company", company_home_main_path
             %li.task_page= link_to "Tasks",task_home_main_path
