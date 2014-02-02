@@ -15,6 +15,7 @@ gem 'gon'
 
 gem 'passenger'
 gem 'capistrano'
+gem 'capistrano-ext'
 
 gem 'prawn'
 gem 'pdf-reader'
