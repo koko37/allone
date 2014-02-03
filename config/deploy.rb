@@ -1,17 +1,28 @@
+require 'capistrano/ext/multistage'
+
+default_run_options[:pty]= true
+
 set :application, "Ovida"
+
 set :repository,  "git@bitbucket.org:gototome/ovida.git"
-set :scm_passphrase, "mouse1122"
 set :scm, :git
-set :deploy_to, "/home/dev/app/allone"
+set :scm_verbose, true
+
 set :user, "dev"
+set :ssh_options, {:forward_agent => true}
+set :use_sudo, false
+
+set :stages, ["staging","production"]
+set :default_stage, "staging"
+#set :deploy_via, :remote_cache
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+
+#role :app, "your app-server here"                          # This may be the same as your `Web` server
+#role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
+#role :db,  "your slave db-server here"
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
