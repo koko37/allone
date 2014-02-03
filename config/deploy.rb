@@ -39,3 +39,14 @@ set :default_stage, "staging"
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+namespace :deploy do
+  task :restart, :roles => :web do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+  
+  task :restart_daemons, :roles => :app do
+    sudo "monit restart all -g daemons"
+  end
+end
+
