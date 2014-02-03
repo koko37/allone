@@ -9,7 +9,7 @@ set :scm, :git
 set :scm_verbose, true
 
 set :user, "dev"
-set :ssh_options, {:forward_agent => true}
+set :ssh_options, {:keys=>%w(~/.ssh/allone), :forward_agent => true}
 set :use_sudo, false
 
 set :stages, ["staging","production"]
