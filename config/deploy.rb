@@ -11,6 +11,7 @@ set :scm_verbose, true
 set :user, "dev"
 set :ssh_options, {:keys=>%w(~/.ssh/allone), :forward_agent => true}
 set :use_sudo, false
+set :deploy_via, :remote_cache
 
 set :stages, ["staging","production"]
 set :default_stage, "staging"
