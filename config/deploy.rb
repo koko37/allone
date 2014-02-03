@@ -2,6 +2,11 @@ require 'capistrano/ext/multistage'
 
 default_run_options[:pty]= true
 
+#$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+require 'rvm/capistrano'
+set :rvm_ruby_string, '1.9.3-p484'
+set :rvm_type, :user
+
 set :application, "Ovida"
 
 set :repository,  "git@bitbucket.org:gototome/ovida.git"
@@ -39,8 +44,19 @@ set :default_stage, "staging"
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+after "deploy:update_code", :bundle_install, :assets_precompile
+
+
+task :bundle_install do
+  run "cd #{current_path}; bundle install"
+end
+
+task :assets_precompile do
+  run "cd #{current_path}; RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
+end
 
 namespace :deploy do
+  desc "cause Passenger to initiate a restart"
   task :restart, :roles => :web do
     run "touch #{current_path}/tmp/restart.txt"
   end
@@ -49,4 +65,6 @@ namespace :deploy do
     sudo "monit restart all -g daemons"
   end
 end
+
+
 

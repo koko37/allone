@@ -4,6 +4,8 @@ gem 'rails', '3.2.13'
 gem 'execjs'
 gem 'therubyracer'
 
+gem 'thin'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -16,6 +18,7 @@ gem 'gon'
 gem 'passenger'
 gem 'capistrano', '< 3.0'
 gem 'capistrano-ext'
+gem 'rvm-capistrano'
 
 gem 'prawn'
 gem 'pdf-reader'
