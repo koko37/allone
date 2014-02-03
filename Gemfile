@@ -14,10 +14,8 @@ gem 'rabl'
 gem 'gon'
 
 gem 'passenger'
-gem 'capistrano'
-gem 'capistrano-rails'
-gem 'capistrano-bundler'
-gem 'capistrano-rbenv'
+gem 'capistrano', '< 3.0'
+
 
 gem 'prawn'
 gem 'pdf-reader'
