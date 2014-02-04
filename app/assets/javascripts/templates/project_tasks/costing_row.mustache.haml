@@ -1,7 +1,7 @@
 %td
-  = link_to "#",:class=>"open-costing_task-input" do
+  = link_to "#",:class=>"open-costing-task-input" do
     %i.icon-folder-open
-  = link_to "#",:class=>"close-costing_task-input hide" do
+  = link_to "#",:class=>"close-costing-task-input hide" do
     %i.icon-folder-close
 
 %td.description
@@ -16,5 +16,7 @@
   $ {{profit}}
 %td.margin
   {{margin}}%
+%td.period
+  {{period}}
 %td.remove_task
   = link_to "-",'#',:class=>"remove_costing_task_row btn btn-warning btn-mini"

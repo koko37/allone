@@ -4,6 +4,15 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
   initialize: (options)->
     _.bindAll(this,'render')
     @project = options.project
+   
+    # parse project_tasks nested objects into collection
+    @project_tasks = new Phenomena.Collections.ProjectTasks()      
+    @project_tasks.reset(@project.get("project_tasks"))
+
+    @project_tasks.on('add', @render)
+        
+  events:
+    'click #add_new_project_task': 'add_new_project_task'
     
   render: ->
     current_view = @
@@ -11,7 +20,18 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
     
     },{}))
 
-    _(@project.get("project_tasks")).each (project_task) ->
+    @project_tasks.each (project_task) ->
       project_task_view = new Phenomena.Views.ProjectTaskCostingRowView({project_task: project_task})
+      project_task_edit_view = new Phenomena.Views.ProjectTaskEditRowView({project_task: project_task})
+      project_task_view.edit_row_view = project_task_edit_view
+      
       current_view.appendChildTo(project_task_view,$(current_view.el).find('#costing_project_tasks_body'))
+      current_view.appendChildTo(project_task_edit_view,$(current_view.el).find('#costing_project_tasks_body'))
     @
+    
+  add_new_project_task: (e)->
+    e.preventDefault()
+    console.log "add new project task"
+    
+    project_task = new Phenomena.Models.ProjectTask()
+    @project_tasks.push(project_task)

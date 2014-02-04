@@ -4,7 +4,7 @@ class ProjectTask < ActiveRecord::Base
   
   before_save :clone_task_attributes
     
-  attr_accessible :description, :labor_cost, :material_cost, :unit_retail, :quantity
+  attr_accessible :description, :labor_cost, :material_cost, :unit_retail, :quantity, :period
 
   def clone_task_attributes
     if self.task_id != nil && self.description == nil then
@@ -14,6 +14,7 @@ class ProjectTask < ActiveRecord::Base
       self.unit_retail = self.task.unit_retail
       
       self.quantity = 1
+      self.period = 0
     end
   end
 end
