@@ -4,7 +4,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
       // start ProjectDetailRouter with json property
-      new Phenomena.Routers.ProjectDetailRouter({project: gon.project});
+      new Phenomena.Routers.ProjectDetailRouter({project: gon.project, tasks: gon.tasks});
       Backbone.history.start()
     });
   </script>

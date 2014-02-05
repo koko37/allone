@@ -13,6 +13,7 @@ class MainController < ApplicationController
   def project_detail
     project= Project.find(params[:id])
     gon.project = project.as_json(:include => :project_tasks)
+    gon.tasks = Task.all.as_json
   end
   
   def pdf_watermark

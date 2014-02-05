@@ -1,5 +1,6 @@
 class Phenomena.Models.ProjectTask extends Backbone.Model
-  url: '/project_tasks'
+  urlRoot: ()->
+    '/projects/' + @get('project_id') + '/project_tasks'
   
   schema:
     task_id: { title: "Task", type: 'Select', options: []}

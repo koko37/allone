@@ -22,7 +22,7 @@ class Phenomena.Views.ProjectTaskEditRowView extends Phenomena.View
         material_cost: selected_task.get('material_cost')
         unit_retail: selected_task.get('unit_retail')
       })
-      
+      current_view.project_task.set({description: selected_task.get('description')})
       # save form
       form.commit()
       current_view.project_task.save()

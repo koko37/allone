@@ -12,8 +12,7 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
     @project_tasks.on('add', @render)
     
     # get template tasks list
-    @template_tasks = new Phenomena.Collections.Tasks()
-    @template_tasks.fetch()
+    @template_tasks = options.template_tasks
 
   events:
     'click #add_new_project_task': 'add_new_project_task'
@@ -42,4 +41,7 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
     console.log "add new project task"
     
     project_task = new Phenomena.Models.ProjectTask()
+    project_task.set({
+      project_id: @project.id
+    })
     @project_tasks.push(project_task)

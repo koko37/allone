@@ -3,7 +3,10 @@ Ovida::Application.routes.draw do
 
   resources :companies
   resources :tasks
-  resources :projects
+
+  resources :projects do
+    resources :project_tasks
+  end
 
   match '/main/projects/:id', :to => "main#project_detail"
   resource :main, :controller => 'main' do
