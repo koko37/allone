@@ -1,0 +1,2 @@
+class ProjectTaskController < ApplicationController
+end

@@ -10,7 +10,11 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
     @project_tasks.reset(@project.get("project_tasks"))
 
     @project_tasks.on('add', @render)
-        
+    
+    # get template tasks list
+    @template_tasks = new Phenomena.Collections.Tasks()
+    @template_tasks.fetch()
+
   events:
     'click #add_new_project_task': 'add_new_project_task'
     
@@ -22,7 +26,11 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
 
     @project_tasks.each (project_task) ->
       project_task_view = new Phenomena.Views.ProjectTaskCostingRowView({project_task: project_task})
-      project_task_edit_view = new Phenomena.Views.ProjectTaskEditRowView({project_task: project_task})
+      project_task_edit_view = new Phenomena.Views.ProjectTaskEditRowView({
+        project_task: project_task
+        template_tasks: current_view.template_tasks
+      })
+      
       project_task_view.edit_row_view = project_task_edit_view
       
       current_view.appendChildTo(project_task_view,$(current_view.el).find('#costing_project_tasks_body'))

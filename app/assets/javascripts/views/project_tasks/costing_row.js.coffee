@@ -5,7 +5,7 @@ class Phenomena.Views.ProjectTaskCostingRowView extends Phenomena.View
   
   initialize: (options)->
     @project_task = options.project_task
-    @project_task.on('change', @render)
+    # @project_task.on('change', @render)
 
   events:
     'click a.open-costing-task-input' : 'open_edit_form'
@@ -26,6 +26,11 @@ class Phenomena.Views.ProjectTaskCostingRowView extends Phenomena.View
     
   open_edit_form: (e)->
     e.preventDefault()
+    
+    # default state of open/close folder icon
+    $('.open-costing-task-input').removeClass('hide')
+    $('.close-costing-task-input').addClass('hide')
+
     # on/off folder icon
     $(@el).find('.open-costing-task-input').addClass('hide')
     $(@el).find('.close-costing-task-input').removeClass('hide')
