@@ -47,6 +47,10 @@ class MainController < ApplicationController
   def sales_input
     ayah = AYAH::Integration.new(77b6a5f210c4459b4571d0c91f351d0e5d1c1e50, a534f43e309a3cf9ae57bccc773413277a7703df)
     @publisher_html = ayah.get_publisher_html
+
+    puts " -------------- -------------------- -------------------- -------------- "
+    puts @publisher_html
+    puts " >>>>>>>>>>>>>>>>>>>>>>"
     render :layout => "test"
   end
   
