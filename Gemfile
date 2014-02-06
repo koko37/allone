@@ -23,6 +23,8 @@ gem 'rvm-capistrano'
 gem 'prawn'
 gem 'pdf-reader'
 
+gem 'ayah_integration'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
