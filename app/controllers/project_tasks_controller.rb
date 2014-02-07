@@ -7,7 +7,8 @@ class ProjectTasksController < ApplicationController
   end
   
   def create
-    respond_with @project.project_tasks.create(params[:project_task])
+    project_task = @project.project_tasks.create(params[:project_task])
+    respond_with [ @project, project_task]
   end
   
   def update
