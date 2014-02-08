@@ -9,7 +9,14 @@ class Phenomena.Collections.ProjectTasks extends Backbone.Collection
       cost_sumup += project_task.cost()
     )
     Math.floor(cost_sumup)
-    
+
+  price: ->
+    cost_sumup = 0.0
+    _(@models).each( (project_task) ->
+      cost_sumup += Math.floor(project_task.get('unit_retail'))
+    )
+    Math.floor(cost_sumup)
+  
   profit: ->
     profit_sumup = 0.0
     _(@models).each( (project_task) ->
@@ -19,4 +26,4 @@ class Phenomena.Collections.ProjectTasks extends Backbone.Collection
 
     
   margin: ->
-    Math.round( 100 * @profit() / @cost())
+    Math.round( 100 * @profit() / @price())

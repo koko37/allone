@@ -12,6 +12,7 @@ class Phenomena.Views.ProjectTaskEditRowView extends Phenomena.View
     # events handler
     current_view = @
     
+    # select task
     @edit_form.on('task_id:change', (form, task_id_selector) ->
       task_id_value = task_id_selector.getValue()
       selected_task = current_view.template_tasks.findWhere({id: parseInt(task_id_value)})
@@ -29,6 +30,14 @@ class Phenomena.Views.ProjectTaskEditRowView extends Phenomena.View
         wait: true
       })
       
+    )
+
+    # change period
+    @edit_form.on('period:change', (form, new_value) ->
+      form.commit()
+      current_view.project_task.save({
+        wait: true
+      })
     )
 
     

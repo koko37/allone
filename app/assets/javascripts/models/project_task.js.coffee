@@ -10,6 +10,11 @@ class Phenomena.Models.ProjectTask extends Backbone.Model
     quantity: { title: "Quantity" }
     period: { title: "Period" }
     
+  defaults:
+    labor_cost: 0.0
+    material_cost: 0.0
+    unit_retail: 0.0
+    
   cost: ->
     parseFloat(@get('labor_cost')) + parseFloat(@get('material_cost'))
     

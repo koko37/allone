@@ -8,7 +8,7 @@ class ProjectTasksController < ApplicationController
   
   def create
     project_task = @project.project_tasks.create(params[:project_task])
-    respond_with [ @project, project_task]
+    render :json => project_task
   end
   
   def update

@@ -20,7 +20,7 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
     'click #add_new_project_task': 'add_new_project_task'
   
   render_total_calculate: ->
-    $(@el).find('.total_cost_of_project').html(@project_tasks.cost())
+    $(@el).find('.total_price_of_project').html(@project_tasks.price())
     $(@el).find('.total_profit_of_project').html(@project_tasks.profit())
     $(@el).find('.total_margin_of_project').html(@project_tasks.margin())
     
@@ -49,10 +49,16 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
     
   add_new_project_task: (e)->
     e.preventDefault()
-    console.log "add new project task"
-    
-    project_task = new Phenomena.Models.ProjectTask()
-    project_task.set({
+   
+    new_task = new Phenomena.Models.ProjectTask()
+    new_task.set({
       project_id: @project.id
     })
-    @project_tasks.push(project_task)
+
+    current_view = @    
+    new_task.save({}, {
+      success: (model, response, options)->
+        current_view.project_tasks.push(model)
+    })
+
+
