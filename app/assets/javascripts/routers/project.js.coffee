@@ -15,8 +15,8 @@ class Phenomena.Routers.ProjectDetailRouter extends Support.SwappingRouter
     
     @template_tasks = new Phenomena.Collections.Tasks()
     @template_tasks.reset(options.tasks)
-    
-    # create inner-views
+
+    # generate children    
     @headerView = new Phenomena.Views.ProjectDetailHeaderView({project: @project})
     @summaryTab = new Phenomena.Views.ProjectSummaryView({project: @project})
     @costingTab = new Phenomena.Views.ProjectCostingTabView({
@@ -24,38 +24,38 @@ class Phenomena.Routers.ProjectDetailRouter extends Support.SwappingRouter
       template_tasks: @template_tasks
     })
     @expenseTab = new Phenomena.Views.ProjectExpenseTabView({project: @project})
-    
-  dashboard: ->
-    view = new Phenomena.Views.ProjectDetailView({
-      project: @project
-      header_view: @headerView
-      tab_view: @summaryTab
-    })
-    @swap(view)
 
-    $(view.el).find('#project_nav_tab li').removeClass('active')
-    $(view.el).find('#project_nav_tab li.summary_tab').addClass('active')
+    @children = [@headerView, @summaryTab, @costingTab, @expenseTab]
+    @children_tabs = [@summaryTab, @costingTab, @expenseTab]
+    
+    @view = new Phenomena.Views.ProjectDetailView({
+      children: @children
+    })
+    @swap(@view)
+    
+
+  dashboard: ->
+    @hideAll()
+    $(@summaryTab.el).removeClass('hide')
+    
+    $(@view.el).find('#project_nav_tab li').removeClass('active')
+    $(@view.el).find('#project_nav_tab li.summary_tab').addClass('active')
     
   costing: ->
-    console.log "costing tab ..."
-    view = new Phenomena.Views.ProjectDetailView({
-      project: @project
-      header_view: @headerView
-      tab_view: @costingTab
-    })
-    @swap(view)
-
-    $(view.el).find('#project_nav_tab li').removeClass('active')
-    $(view.el).find('#project_nav_tab li.costing_tab').addClass('active')
+    @hideAll()
+    $(@costingTab.el).removeClass('hide')
+    
+    $(@view.el).find('#project_nav_tab li').removeClass('active')
+    $(@view.el).find('#project_nav_tab li.costing_tab').addClass('active')
 
   expense: ->
-    view = new Phenomena.Views.ProjectDetailView({
-      project: @project
-      header_view: @headerView
-      tab_view: @expenseTab
-    })
-    @swap(view)
+    @hideAll()
+    $(@expenseTab.el).removeClass('hide')
+    
+    $(@view.el).find('#project_nav_tab li').removeClass('active')
+    $(@view.el).find('#project_nav_tab li.expense_tab').addClass('active')
 
-    $(view.el).find('#project_nav_tab li').removeClass('active')
-    $(view.el).find('#project_nav_tab li.expense_tab').addClass('active')
-
+  # hide all sub tabs at once
+  hideAll: ->
+    _(@children_tabs).each (child_view)->
+      $(child_view.el).addClass('hide')

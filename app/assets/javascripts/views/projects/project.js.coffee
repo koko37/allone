@@ -3,11 +3,12 @@ class Phenomena.Views.ProjectDetailView extends Phenomena.View
   initialize: (options) ->
     _.bindAll(this,'render')
 
-    @headerView= options.header_view
-    @tabView = options.tab_view
+    @all_views = options.children
     
   render: ->
-    @appendChild(@headerView)
-    @appendChild(@tabView)
+    current_view = @
+    _(@all_views).each (child_view) ->
+      current_view.appendChild(child_view)
+
     @
 

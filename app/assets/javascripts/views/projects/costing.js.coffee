@@ -25,6 +25,7 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
     $(@el).find('.total_margin_of_project').html(@project_tasks.margin())
     
   render: ->
+    console.log "costing tab view"
     current_view = @
     $(@el).html(@template.render({
     
