@@ -3,7 +3,8 @@ class Phenomena.Views.ProjectSummaryView extends Phenomena.View
   
   initialize: (options)->
     @project= options.project
-  
+    @project_tasks = options.project_tasks
+    
   render: ->
     $(@el).html(@template.render({
     

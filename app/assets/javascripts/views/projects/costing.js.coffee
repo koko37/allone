@@ -4,10 +4,7 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
   initialize: (options)->
     _.bindAll(this,'render')
     @project = options.project
-   
-    # parse project_tasks nested objects into collection
-    @project_tasks = new Phenomena.Collections.ProjectTasks()      
-    @project_tasks.reset(@project.get("project_tasks"))
+    @project_tasks = options.project_tasks
 
     @project_tasks.on('add', @render)
     @listenTo(@project_tasks,'change', @render_total_calculate)

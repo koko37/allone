@@ -13,17 +13,21 @@ class Phenomena.Routers.ProjectDetailRouter extends Support.SwappingRouter
     @project= new Phenomena.Models.Project()
     @project.set(options.project)
     
+    @project_tasks = new Phenomena.Collections.ProjectTasks()
+    @project_tasks.reset(@project.get('project_tasks'))
+    
     @template_tasks = new Phenomena.Collections.Tasks()
     @template_tasks.reset(options.tasks)
 
     # generate children    
-    @headerView = new Phenomena.Views.ProjectDetailHeaderView({project: @project})
-    @summaryTab = new Phenomena.Views.ProjectSummaryView({project: @project})
+    @headerView = new Phenomena.Views.ProjectDetailHeaderView({project: @project, project_tasks: @project_tasks})
+    @summaryTab = new Phenomena.Views.ProjectSummaryView({project: @project, project_tasks: @project_tasks})
     @costingTab = new Phenomena.Views.ProjectCostingTabView({
       project: @project
       template_tasks: @template_tasks
+      project_tasks: @project_tasks
     })
-    @expenseTab = new Phenomena.Views.ProjectExpenseTabView({project: @project})
+    @expenseTab = new Phenomena.Views.ProjectExpenseTabView({project: @project, project_tasks: @project_tasks})
 
     @children = [@headerView, @summaryTab, @costingTab, @expenseTab]
     @children_tabs = [@summaryTab, @costingTab, @expenseTab]
