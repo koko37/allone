@@ -1,7 +1,25 @@
 .row
   .span12
     .well
-      =link_to "Add Task","#",:class=>"btn btn-primary",:id=> "add_new_project_task"
+      .span2
+        =link_to "Add Task","#",:class=>"btn btn-primary",:id=> "add_new_project_task",:style=>"margin-top: -5px;"
+      .span3
+        %span
+          Total Cost: $
+        %span.total_cost_of_project
+          0
+      .span3
+        %span
+          Total Profit: $
+        %span.total_profit_of_project
+          0
+      .span3
+        %span
+          Total Margin: %
+        %span.total_margin_of_project
+          0
+%hr
+    
 .row
   .span12
     %h4

@@ -10,12 +10,19 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
     @project_tasks.reset(@project.get("project_tasks"))
 
     @project_tasks.on('add', @render)
+    @listenTo(@project_tasks,'change', @render_total_calculate)
+    @listenTo(@project_tasks,'destroy', @render_total_calculate)
     
     # get template tasks list
     @template_tasks = options.template_tasks
 
   events:
     'click #add_new_project_task': 'add_new_project_task'
+  
+  render_total_calculate: ->
+    $(@el).find('.total_cost_of_project').html(@project_tasks.cost())
+    $(@el).find('.total_profit_of_project').html(@project_tasks.profit())
+    $(@el).find('.total_margin_of_project').html(@project_tasks.margin())
     
   render: ->
     current_view = @
@@ -34,6 +41,10 @@ class Phenomena.Views.ProjectCostingTabView extends Phenomena.View
       
       current_view.appendChildTo(project_task_view,$(current_view.el).find('#costing_project_tasks_body'))
       current_view.appendChildTo(project_task_edit_view,$(current_view.el).find('#costing_project_tasks_body'))
+    
+    #calculate total info of tasks
+    @render_total_calculate()
+    
     @
     
   add_new_project_task: (e)->

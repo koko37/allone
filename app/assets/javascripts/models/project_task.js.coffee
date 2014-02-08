@@ -10,8 +10,11 @@ class Phenomena.Models.ProjectTask extends Backbone.Model
     quantity: { title: "Quantity" }
     period: { title: "Period" }
     
+  cost: ->
+    parseFloat(@get('labor_cost')) + parseFloat(@get('material_cost'))
+    
   profit: ->
-    @get('unit_retail') - @get('labor_cost') - @get('material_cost')
+    Math.floor(parseFloat(@get('unit_retail')) - parseFloat(@get('labor_cost')) - parseFloat(@get('material_cost')))
     
   margin: ->
-    Math.round( 100 * @profit() / @get('unit_retail'))
+    Math.round( 100 * @profit() / parseFloat(@get('unit_retail')))

@@ -25,7 +25,9 @@ class Phenomena.Views.ProjectTaskEditRowView extends Phenomena.View
       current_view.project_task.set({description: selected_task.get('description')})
       # save form
       form.commit()
-      current_view.project_task.save()
+      current_view.project_task.save({
+        wait: true
+      })
       
     )
 

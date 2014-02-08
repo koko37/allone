@@ -5,11 +5,12 @@ class Phenomena.Views.ProjectTaskCostingRowView extends Phenomena.View
   
   initialize: (options)->
     @project_task = options.project_task
-    # @project_task.on('change', @render)
-
+    @listenTo(@project_task, 'sync', @render)
+    
   events:
     'click a.open-costing-task-input' : 'open_edit_form'
     'click a.close-costing-task-input' : 'close_edit_form'
+    'click a.remove_costing_task_row' : 'remove_project_task'
     
   render: ->
     $(@el).html(@template.render({
@@ -48,3 +49,9 @@ class Phenomena.Views.ProjectTaskCostingRowView extends Phenomena.View
 
     console.log "close form"
     @edit_row_view.hideForm()
+
+  remove_project_task: (e) ->
+    e.preventDefault()
+    @edit_row_view.leave()
+    @leave()
+    @project_task.destroy()
